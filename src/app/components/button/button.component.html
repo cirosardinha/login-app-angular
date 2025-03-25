@@ -1,0 +1,8 @@
+<div>
+  <button [type]="buttonType || 'button'"
+    class="w-full bg-blue-600 hover:bg-blue-500 cursor-pointer text-white font-semibold rounded-lg px-4 py-2.5"
+    (click)="onClick.emit()">
+
+    {{ buttonText }}
+  </button>
+</div>

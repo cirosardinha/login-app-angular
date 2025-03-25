@@ -1,0 +1,26 @@
+<div class="flex justify-between flex-col gap-2">
+  <label for="{{id}}">{{label}}</label>
+
+  <div class="flex items-center relative">
+    <input [class]="isInvalid ? 'border-red-500' : 'border-gray-400 focus-within:border-blue-600'"
+      class="border-2 rounded-lg w-full py-2.5 px-4 text-gray-200 outline-none" [type]="type"
+      [placeholder]="placeholder" [id]="id" [value]="value" (input)="onInputChange($event)" (blur)="onTouched()">
+
+    <button [class.hidden]="!isPasswordField" class="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+      (click)="togglePasswordVisibility()">
+
+      @if(!passwordVisibility){
+      <img src="/assets/eye-icon.svg" alt="Show Password" class="h-6 w-6">
+      }@else {
+      <img src="/assets/eye-slash-icon.svg" alt="Hide Password" class="h-6 w-6">
+      }
+
+    </button>
+
+  </div>
+  @if(isInvalid){
+  <p class="text-red-500 text-sm mt-1">{{errorMessage}}</p>
+  }
+
+
+</div>
